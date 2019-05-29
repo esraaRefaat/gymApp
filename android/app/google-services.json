@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "177543328852",
+    "firebase_url": "https://auth-b4900.firebaseio.com",
+    "project_id": "auth-b4900",
+    "storage_bucket": "auth-b4900.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177543328852:android:a39393099ff068ab",
+        "android_client_info": {
+          "package_name": "com.esraatashfier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177543328852-pokgj0ir2ka6e15bbbf5d881v0tr5qkg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-k9L4wDeoh9vme6R_kVU4Cv6S814zAvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177543328852-pokgj0ir2ka6e15bbbf5d881v0tr5qkg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "177543328852-p45gc57vaknh4e1ln4kfl0n3ij7psejd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "host.exp.exponent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
