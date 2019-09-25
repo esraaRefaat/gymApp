@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import AuthScreen from './containers/AuthScreen'
-import HomeScreen from './containers/HomeScreen'
+//import HomeScreen from './containers/HomeScreen'
 
 /**
  * The root component of the application.

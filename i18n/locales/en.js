@@ -1,3 +1,5 @@
 export default {  
-    greeting: 'تسجيل الدخول'
+    greeting: 'Login',
+    out:'Sign Out',
+    password:'Change Password'
   };

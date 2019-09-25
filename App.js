@@ -8,14 +8,25 @@
 
 import React, {Component} from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import Map from './screens/Map';
+import Footertabs from './screens/FooterTabs';
 import LoginAnimation from './screens/LoginAnimation';
+import TabOne from './screens/TabOne';
+import TabTwo from './screens/TabTwo';
+import TabThree from './screens/TabThree'
+import TabFour from './screens/TabFour'
+import Opening from './screens/containers/AuthScreen'
 import SplashScreen from 'react-native-splash-screen'
 import firebase from 'firebase';
 const RootStack = createStackNavigator(
 {
 Home:LoginAnimation,
-map:Map
+Tabs:Footertabs,
+One:TabOne,
+Two:TabTwo,
+Three:TabThree,
+Open:Opening,
+Four:TabFour
+
 },
 {
 initialRouteName:'Home'
@@ -24,6 +35,9 @@ initialRouteName:'Home'
 );
 const AppContainer = createAppContainer(RootStack);
 export default class App extends Component{
+  static navigationOptions = {
+    header:null
+  }
   componentDidMount() {
      SplashScreen.hide();
      firebase.initializeApp({  

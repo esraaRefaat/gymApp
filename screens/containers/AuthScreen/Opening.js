@@ -7,6 +7,9 @@ import CustomButton from '../../components/CustomButton'
 import metrics from '../../config/metrics'
 import I18n from '../../../i18n/i18n';
 export default class Opening extends Component {
+  static navigationOptions = {
+    header:null
+  }
   static propTypes = {
     onCreateAccountPress: PropTypes.func.isRequired,
     onSignInPress: PropTypes.func.isRequired
@@ -57,7 +60,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8
   },
   signInButton: {
-    backgroundColor: '#4DB6AC'
+    backgroundColor: '#3e64ff'
   },
   signInButtonText: {
     color: 'white'

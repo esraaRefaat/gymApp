@@ -4,11 +4,10 @@ import createReactClass from 'create-react-class'
 import { KeyboardAvoidingView, LayoutAnimation, Platform, StyleSheet, UIManager } from 'react-native'
 import { Image, View } from 'react-native-animatable'
 
-import imgLogo from '../../images/logo.png'
+import imgLogo from '../../images/logo.jpg'
 import metrics from '../../config/metrics'
 
 import Opening from './Opening'
-import SignupForm from './SignupForm'
 import LoginForm from './LoginForm'
 
 const IMAGE_WIDTH = metrics.DEVICE_WIDTH * 0.8
@@ -44,6 +43,9 @@ if (Platform.OS === 'android') UIManager.setLayoutAnimationEnabledExperimental(t
  *   2. fadeOut the logo, 3. tells the container that the login animation has completed and that the app is ready to show the next screen (HomeScreen).
  */
 export default class AuthScreen extends Component {
+  static navigationOptions = {
+    header:null
+  }
   static propTypes = {
     isLoggedIn: PropTypes.bool.isRequired,
     isLoading: PropTypes.bool.isRequired,

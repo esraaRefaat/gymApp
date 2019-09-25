@@ -8,7 +8,11 @@ import CustomTextInput from '../../components/CustomTextInput'
 import metrics from '../../config/metrics'
 import { withNavigation } from 'react-navigation';
 import I18n from '../../../i18n/i18n';
-import firebase from 'firebase';
+
+//import { AccessToken, LoginManager } from 'react-native-fbsdk';
+import firebase from 'react-native-firebase'
+import { thisExpression } from '@babel/types';
+//import { error } from 'util';
 
  class LoginForm extends Component {
   static propTypes = {
@@ -22,14 +26,17 @@ import firebase from 'firebase';
     this.state = { email: '', password: ''};
   
 }
-//Up=()=> {
-  
- // firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
-   // .then(()=>{this.props.navigation.navigate('Map')
-//
-  //  })   
-  
-//}
+
+  Login=async()=> {
+ firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then(()=>{
+    this.props.navigation.navigate('Tabs')
+ }
+).catch(()=>{
+ Alert.alert('the email address is already in use.try another one ')
+ 
+ })
+
+}
   hideForm = async () => {
     if (this.buttonRef && this.formRef && this.linkRef) {
       await Promise.all([
@@ -41,7 +48,7 @@ import firebase from 'firebase';
   }
 
   render () {
-    const { email, password } = this.state
+    const { email, password ,error} = this.state
     const { isLoading, onSignupLinkPress, onLoginPress } = this.props
    // const isValid = email !== '' && password !== ''
     return (
@@ -64,20 +71,18 @@ import firebase from 'firebase';
         </View>
         <View style={styles.footer}>
           <View ref={(ref) => this.buttonRef = ref} animation={'bounceIn'} duration={600} delay={400}>
-            <TouchableOpacity
-            style={styles.loginButton}
-              onPress={
-               ()=>{
-                this.props.navigation.navigate('map')
-               }
-                
-              }
-            >
-            <Text  style={styles.loginButtonText}>
-             {I18n.t('greeting')}
-             </Text>
-            </TouchableOpacity>
-          </View>
+        <TouchableOpacity style={styles.Login}
+        onPress={this.Login}
+        
+        
+        >
+          <Text style={styles.textStyle}>
+            
+        { I18n.t('greeting')}
+          </Text>
+          </TouchableOpacity>
+         
+            </View>
          
         </View>
       </View>
@@ -88,7 +93,7 @@ import firebase from 'firebase';
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: metrics.DEVICE_WIDTH * 0.1,
-    backgroundColor: '#4DB6AC'
+    backgroundColor: '#3e64ff'
     
   },
   form: {
@@ -113,6 +118,17 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#4DB6AC'
   },
-  
+  textStyle:{
+    textAlign: 'center',
+    fontWeight: '800',
+    color: '#fff'
+  },
+  Login:{
+    borderColor: '#fff',
+    borderWidth: 1,
+    borderRadius: 3,
+    height: 42,
+    justifyContent: 'center',
+  }
 })
 export default withNavigation(LoginForm);
